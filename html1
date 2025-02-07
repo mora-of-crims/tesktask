@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <title>Название сайта</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E5E5E5;
+        }
+        header {
+            background-color: #999999;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            margin: 0; 
+            font-size: 1.5rem;
+            color: black;
+            font-size: 3rem;
+        }
+        .imagelogo {    
+            order: 3;
+            width: 50px; 
+            height: 50px; 
+            margin-right: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .title {
+            order: 2;
+        }
+        nav {
+            order: 1;
+        }
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        .menu {
+            display: flex;
+            border-radius: 50px;
+        }
+        .content {
+            padding: 2rem;
+        }
+        nav a {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+            color: white;
+            border-radius: 50px;
+        }
+        .menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            background-color: #FFCC00;
+        }
+        .menu.hidden {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            }
+            .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            }
+            .search-bar button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            }
+            @media (min-width: 769px) {
+                .search-bar {
+                    display: none;
+                }
+            }
+            .search-bar button:hover {
+            background-color: black;
+            }
+            header {
+                flex-direction: row-reverse;
+            }
+            .search-bar {
+                order: 1;
+            }
+            .hamburger {
+                order: 2;
+            }
+            footer {
+        background-color: #FFCC00;
+        color: black;
+        padding: 2rem;
+        text-align: center;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .footer-logo img {
+        width: 50px;
+        height: 50px;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .footer-links {
+        margin-right: 10rem;
+    }
+    .leftie {
+        margin-right: 1rem;
+    }
+    .footer-links a {
+        color: black;
+        text-decoration: none;
+    }
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+    }
+    .footer-social img {
+        width: 30px;
+        height: 30px;
+    }
+    .footer-bottom {
+        margin-top: 1rem;
+    }
+    .footer-logo img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    html, body {
+        min-height: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+    h1 {
+        margin: 0 0 20px;
+        font-weight: 400;
+        color: #444;
+    }
+    p {
+        margin: 0 0 5px;
+    }
+    .hidy {
+        display: none;
+        opacity: 0;
+    }
+    .main-block {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-height: 480px;
+        background: white;
+        border-radius: 5px;
+    }
+    form {
+        padding: 25px;
+        margin: 25px;
+        box-shadow: 0 2px 5px #f5f5f5; 
+        background: white; 
+        margin: 25px;
+    }
+    .fas {
+        margin: 25px 10px 0;
+        font-size: 72px;
+        color: #fff;
+    }
+    .fa-envelope {
+        transform: rotate(-20deg);
+    }
+    .fa-at , .fa-mail-bulk{
+        transform: rotate(10deg);
+    }
+    input, textarea {
+        width: calc(100% - 18px);
+        padding: 8px;
+        margin-bottom: 20px;
+        outline: none;
+        background-color: #E5E5E5;
+        border-radius: 5px;
+    }
+    input::placeholder {
+        color: black;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #FFCC00; 
+        font-size: 16px;
+        font-weight: 400;
+        color: black;
+        border-radius: 50px;
+    }
+    button:hover {
+        background: #FFCC00;
+    } 
+    @media (min-width: 568px) {
+        .main-block {
+            flex-direction: row;
+            }
+        .left-part, form {
+            width: 50%;
+            }
+        .fa-envelope {
+            margin-top: 0;
+            margin-left: 20%;
+            }
+        .fa-at {
+            margin-top: -10%;
+            margin-left: 65%;
+            }
+        .fa-mail-bulk {
+            margin-top: 2%;
+            margin-left: 28%;
+            }
+    }
+    h1.main, h1.messages {
+        display: inline-block;
+        color: black;
+        margin-left: 20px;
+    }
+    h1.messages {
+        color: #FFCC00;
+    }
+    .attachment-button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #FFCC00;
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-bottom: 20px;
+        }
+        .attachment-button:hover {
+        background-color: #555;
+        color: white;
+        }
+        .subscribe input[type="checkbox"] {
+            display: none;
+        }
+
+        .subscribe label {
+            position: relative;
+            padding-left: 35px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .subscribe label::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border: 2px solid black;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .subscribe input[type="checkbox"]:checked + label::before {
+            background-color: green;
+            border-color: black;
+        }
+
+        .subscribe label::after {
+            content: "";
+            position: absolute;
+            left: 6px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            width: 6px;
+            height: 12px;
+            border: solid #fff;
+            border-width: 0 2px 2px 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .subscribe input[type="checkbox"]:checked + label::after {
+            opacity: 1;
+        }
+        button[type="submit"] {
+            margin: 2rem 1rem 1rem 0rem;
+        }
+        textarea { 
+            resize: none;
+        }
+        form {
+            max-width: 1000px;
+            max-height: 1000px;
+            width: 200%;
+        }
+        .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+                background-color: rgba(0, 0, 0, 0.4);
+            }
+
+            .modal-content {
+                background-color: #fefefe;
+                margin: 15% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%;
+                max-width: 500px;
+                text-align: center;
+                border-radius: 10px;
+            }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            button[type="submit"]:hover {
+                background-color: #333;
+                color: white;
+            }
+            .policy {
+                color: black;
+            }
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .title {
+                    opacity: 0;
+                }
+                .imagelogo {
+                    width: 50px;
+                    height: 50px;
+                    margin-top: -6rem;
+                }
+                nav {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+                .menu {
+                    flex-direction: column;
+                    width: 100%;
+                    display: none;
+                }
+                .menu a {
+                    padding: 1rem;
+                    text-align: center;
+                    border-bottom: 1px solid #ccc;
+                }
+                .hamburger {
+                    display: flex;
+                }
+                .search-bar {
+                    width: 100%;
+                    margin-top: 1rem;
+                    margin-bottom: -2rem;
+                    order: 3;
+                }
+                .search-bar button {
+                    padding: 1rem 1rem;
+                    width: 30%;
+                    transform: translateY(-21%);
+                }
+                .main, .messages {
+                    align-items: center;
+                    transform: translateX(-1.3rem);
+                    font-size: 20px;
+                }
+                .content {
+                    padding: 1rem;
+                }
+                .main-block {
+                    width: 100%;
+                }
+                .subscribe label {
+                    padding-top: 1.7rem;
+                }
+                form {
+                    width: 100%;
+                    padding: 1rem;
+                    margin: 0;
+                }    
+                button[type="submit"] {
+                    margin: 1rem 0;    
+                }
+                .hamburger {
+                    order: 3;
+                    margin-left: auto;
+                }
+                .menu.active + .imagelogo {
+                    display: none;
+    
+                }
+            }    
+            .viewy {
+                display: none;
+                opacity: 0;   
+            }
+            .hidy {
+                display: block;
+                opacity: 1;
+            }
+            @media (max-width: 768px) {
+                .footer-content {
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                }
+                .footer-logo {
+                    margin-bottom: 1rem;
+                }
+                .footer-links {
+                    margin-right: 0;
+                    margin-bottom: 1rem;
+                }
+                .footer-social {
+                    justify-content: center;
+                }
+            }
+            
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title"></div>
+        <h1 class="title">Название сайта</h1>
+            <img src="https://cdn1.ozone.ru/s3/multimedia-b/6612836771.jpg" alt="Website Logo" class ="imagelogo">
+        </div>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="menu">
+                <a href="#">Главное</a>
+                <a href="#">Направления деятельности</a>
+                <a href="#">Новости</a>
+                <a href="#">Контакты</a>
+                <a href="#">Оставить обращение</a>
+            </div>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск по сайту">
+            <button class="emoji" type="submit">🔍</button>
+        </div>
+    </header>
+    <div class="content">
+     <h1 class="main">Главная »</h1>
+     <h1 class="messages">Обращения граждан</h1>
+    <div class="main-block">
+        <form action="submit_form.php" method="post">
+            <label for="name"></label>
+            <input type="text" id="name" name="name" placeholder="ФИО" required>
+            
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="E-mail" required>
+            
+            <label for="phone"></label>
+            <input type="tel" id="phone" name="phone" placeholder="Номер телефона" required>
+            
+            <label for="message"></label>
+            <textarea id="message" name="message" placeholder="Введите текст вашего обращения" rows="4" required></textarea>
+            <label for="attachment"></label>
+            <input type="file" id="attachment" name="attachment" style="display: none;">
+            <button type="button" onclick="document.getElementById('attachment').click();" class="attachment-button">Прикрепить файлы 🧷</button>
+            <div class="subscribe">
+                <input type="checkbox" id="subscribeNews" required="" name="subscribe" value="newsletter"><label for="subscribeNews" class="mark">Оставляя заявку, вы соглашаетесь с условиями  <a class="policy" href="/politika_konfeditialnosti/">политики конфиденциальности</a></label>
+            </div>
+            <button type="submit">Отправить</button>
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <p>Ваше обращение успешно отправлено!</p>
+            </div>
+        </div>
+
+        <script>
+            function showModal() {
+                document.getElementById('successModal').style.display = 'block';
+            }
+
+            function closeModal() {
+                document.getElementById('successModal').style.display = 'none';
+            }
+
+            document.querySelector('form').addEventListener('submit', function(event) {
+                event.preventDefault();
+                showModal();
+            });
+        </script>
+        </form>
+    </div>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+<footer>
+    <div class="footer-content">
+        <div class="footer-logo">
+            <img class="logofooter" src="https://cdn1.ozone.ru/s3/multimedia-b/6612836771.jpg" alt="Website Logo">
+            <p class="footername">Название сайта</p>
+        </div>
+        <div class="footer-links">
+            <a class="viewy" class="footerie" class="leftie" href="#">Политика обработки персональных данных</a>
+            <a class="hidy" class="footerie" class="leftie" href="#">Политика обработки персональных данныхㅤ </a>
+            <a class="footerie" href="#"> Версия для слабовидящих</a>
+        </div>
+        <div class="footer-social">
+            <a href="#"><img src="https://www.mgutu-vf.ru/img/vk_1.png" alt="ВКонтакте"></a>
+            <a href="#"><img src="https://okeygeek.ru/wp-content/uploads/2020/08/telegram-2048x2048.png" alt="Telegram"></a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; Все права защищены</p>
+    </div>
+</footer>
+</body>
+</html>
