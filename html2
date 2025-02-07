@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Название сайта</title>
+    <style>
+         body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #E5E5E5;
+        }
+        header {
+            background-color: #999999;
+            color: white;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .title {
+            margin: 0; 
+            font-size: 1.5rem;
+            color: black;
+            font-size: 3rem;
+        }
+        .imagelogo {    
+            order: 3;
+            width: 50px; 
+            height: 50px; 
+            margin-right: 10px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .title {
+            order: 2;
+        }
+        nav {
+            order: 1;
+        }
+        nav {
+            display: flex;
+            gap: 1rem;
+        }
+        nav a {
+            color: black;
+            text-decoration: none;
+        }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        .menu {
+            display: flex;
+            border-radius: 50px;
+        }
+        .content {
+            padding: 2rem;
+        }
+        nav a {
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #555;
+            color: white;
+            border-radius: 50px;
+        }
+        .menu {
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            background-color: #FFCC00;
+        }
+        .menu.hidden {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            }
+            .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+            }
+            .search-bar button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            }
+            @media (min-width: 769px) {
+                .search-bar {
+                    display: none;
+                }
+            }
+            .search-bar button:hover {
+            background-color: black;
+            }
+            header {
+                flex-direction: row-reverse;
+            }
+            .search-bar {
+                order: 1;
+            }
+            .hamburger {
+                order: 2;
+            }
+            footer {
+        background-color: #FFCC00;
+        color: black;
+        padding: 2rem;
+        text-align: center;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .footer-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+    .footer-logo img {
+        width: 50px;
+        height: 50px;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    .footer-links {
+        margin-right: 10rem;
+    }
+    .leftie {
+        margin-right: 1rem;
+    }
+    .footer-links a {
+        color: black;
+        text-decoration: none;
+    }
+    .footer-social {
+        display: flex;
+        gap: 1rem;
+    }
+    .footer-social img {
+        width: 30px;
+        height: 30px;
+    }
+    .footer-bottom {
+        margin-top: 1rem;
+    }
+    .footer-logo img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+    }
+    html, body {
+        min-height: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: Roboto, Arial, sans-serif;
+        font-size: 14px;
+        color: #666;
+    }
+    h1 {
+        margin: 0 0 20px;
+        font-weight: 400;
+        color: #444;
+    }
+    p {
+        margin: 0 0 5px;
+    }
+    .hidy {
+        display: none;
+        opacity: 0;
+    }
+    .fas {
+        margin: 25px 10px 0;
+        font-size: 72px;
+        color: #fff;
+    }
+    .fa-envelope {
+        transform: rotate(-20deg);
+    }
+    .fa-at , .fa-mail-bulk{
+        transform: rotate(10deg);
+    }
+    input, textarea {
+        width: calc(100% - 18px);
+        padding: 8px;
+        margin-bottom: 20px;
+        outline: none;
+        background-color: #E5E5E5;
+        border-radius: 5px;
+    }
+    input::placeholder {
+        color: black;
+    }
+    button {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        background: #FFCC00; 
+        font-size: 16px;
+        font-weight: 400;
+        color: black;
+        border-radius: 50px;
+    }
+    button:hover {
+        background: #FFCC00;
+    } 
+    @media (min-width: 568px) {
+        .main-block {
+            flex-direction: row;
+            }
+        .left-part, form {
+            width: 50%;
+            }
+        .fa-envelope {
+            margin-top: 0;
+            margin-left: 20%;
+            }
+        .fa-at {
+            margin-top: -10%;
+            margin-left: 65%;
+            }
+        .fa-mail-bulk {
+            margin-top: 2%;
+            margin-left: 28%;
+            }
+    }
+    h1.main, h1.messages {
+        display: inline-block;
+        color: black;
+        margin-left: 20px;
+    }
+    h1.messages {
+        color: #FFCC00;
+    }
+    .attachment-button {
+        padding: 0.5rem 1rem;
+        border: none;
+        border-radius: 4px;
+        background-color: #FFCC00;
+        color: black;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-bottom: 20px;
+        }
+        .attachment-button:hover {
+        background-color: #555;
+        color: white;
+        }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            button[type="submit"]:hover {
+                background-color: #333;
+                color: white;
+            }
+            .policy {
+                color: black;
+            }
+            @media (max-width: 768px) {
+                header {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+                .title {
+                    opacity: 0;
+                }
+                .imagelogo {
+                    width: 50px;
+                    height: 50px;
+                    margin-top: -6rem;
+                }
+                nav {
+                    width: 100%;
+                    justify-content: space-between;
+                }
+                .menu {
+                    flex-direction: column;
+                    width: 100%;
+                    display: none;
+                }
+                .menu a {
+                    padding: 1rem;
+                    text-align: center;
+                    border-bottom: 1px solid #ccc;
+                }
+                .hamburger {
+                    display: flex;
+                }
+                .search-bar {
+                    width: 100%;
+                    margin-top: 1rem;
+                    margin-bottom: -2rem;
+                    order: 3;
+                }
+                .search-bar button {
+                    padding: 1rem 1rem;
+                    width: 30%;
+                    transform: translateY(-21%);
+                }
+                .hamburger {
+                    order: 3;
+                    margin-left: auto;
+                }
+                .menu.active + .imagelogo {
+                    display: none;
+    
+                }
+            }    
+            .viewy {
+                display: none;
+                opacity: 0;   
+            }
+            .hidy {
+                display: block;
+                opacity: 1;
+            }
+            @media (max-width: 768px) {
+                footer {
+                    text-align: center;
+                }
+                .footer-content {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .footer-logo {
+                    margin-bottom: 1rem;
+                }
+                .footer-links {
+                    margin: 0;
+                    align-items: center;
+                }
+                .footer-links a {
+                    margin: 0.5rem 0;
+                }
+                .footer-social {
+                    margin-top: 1rem;
+                }
+                .footer-logo img {
+                align-self: flex-start;
+            }
+            }
+            .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: background-color 0.3s;
+            width: calc(33.333% - 1rem);
+            margin-bottom: 1rem;
+        }
+        .news-card:hover {
+            background-color: #f0f0f0;
+        }
+        .news-card img {
+            width: 100%;
+            height: auto;
+        }
+        .news-card h2 {
+            margin: 1rem;
+        }
+        .news-card .date {
+            margin: 0 1rem;
+            color: gray;
+        }
+        .news-card .preview {
+            margin: 1rem;
+        }
+        .news-card .read-more {
+            background-color: #FFCC00;
+            border: none;
+            border-radius: 4px;
+            color: black;
+            cursor: pointer;
+            margin: 1rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s;
+        }
+        .news-card .read-more:hover {
+            background-color: #555;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .news-card {
+                width: calc(50% - 1rem);
+            }
+        }
+        @media (max-width: 480px) {
+            .news-card {
+                width: 100%;
+            }
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        .dropdown-select {
+            background-color: #FFCC00;
+            border: none;
+            border-radius: 4px;
+            color: black;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            text-align: center;
+            width: 200px;
+        }
+        .dropdown-list {
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            display: none;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+        .dropdown-list.show {
+            display: block;
+        }
+        .dropdown-list li {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        .dropdown-list li:hover {
+            background-color: #f0f0f0;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+        .modal-content {
+            background-color: white;
+            border-radius: 8px;
+            margin: 10% auto;
+            padding: 1rem;
+            position: relative;
+            width: 80%;
+            max-width: 500px;
+            animation: slideIn 0.3s;
+        }
+        .modal .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-20px); }
+            to { transform: translateY(0); }
+        }
+        .read-more {
+            width: 93.5%;
+        }
+        @media (max-width: 768px) {
+            .read-more {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-title"></div>
+        <h1 class="title">Название сайта</h1>
+            <img src="https://cdn1.ozone.ru/s3/multimedia-b/6612836771.jpg" alt="Website Logo" class ="imagelogo">
+        </div>
+        <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="menu">
+                <a href="#">Главное</a>
+                <a href="#">Направления деятельности</a>
+                <a href="#">Новости</a>
+                <a href="#">Контакты</a>
+                <a href="#">Оставить обращение</a>
+            </div>
+        </nav>
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск по сайту">
+            <button class="emoji" type="submit">🔍</button>
+        </div>
+    </header>
+    <div class="content">
+     <h1 class="main">Главная »</h1>
+     <h1 class="messages">Новости</h1>
+    <div class="main-block">
+    </div>
+    <div class="news-container">
+        <div class="news-card">
+            <img src="https://avatars.mds.yandex.net/i?id=bf1975555158f65235632d7e7cae157a_l-5238850-images-thumbs&n=13" alt="News Image">
+            <h2>Заголовок новости</h2>
+            <p class="date">01.01.2023</p>
+            <p class="preview">Короткое описание, тут что-то написано</p>
+            <button class="read-more" onclick="openModal('modal1')">Читать далее</button>
+        </div>
+        <div class="news-card">
+            <img src="https://avatars.mds.yandex.net/i?id=bf1975555158f65235632d7e7cae157a_l-5238850-images-thumbs&n=13" alt="News Image">
+            <h2>Заголовок новости</h2>
+            <p class="date">02.01.2023</p>
+            <p class="preview">Короткое описание, тут что-то написано</p>
+            <button class="read-more" onclick="openModal('modal2')">Читать далее</button>
+        </div>
+        <div class="news-card">
+            <img src="https://avatars.mds.yandex.net/i?id=bf1975555158f65235632d7e7cae157a_l-5238850-images-thumbs&n=13" alt="News Image">
+            <h2>Заголовок новости</h2>
+            <p class="date">03.01.2023</p>
+            <p class="preview">Короткое описание, тут что-то написано</p>
+            <button class="read-more" onclick="openModal('modal3')">Читать далее</button>
+        </div>
+    </div>
+
+    <div class="dropdown">
+        <div class="dropdown-select" onclick="toggleDropdown()">Выбрать категорию</div>
+        <ul class="dropdown-list">
+            <li onclick="selectCategory('Новости')">Новости</li>
+            <li onclick="selectCategory('Видео')">Видео</li>
+            <li onclick="selectCategory('СМИ')">СМИ</li>
+        </ul>
+    </div>
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <h2>Заголовок новости</h2>
+            <p>Что-то написано</p>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <h2>Заголовок новости</h2>
+            <p>Что-то написано</p>
+        </div>
+    </div>
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <h2>Заголовок новости</h2>
+            <p>Что-то написано</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleDropdown() {
+            document.querySelector('.dropdown-list').classList.toggle('show');
+        }
+
+        function selectCategory(category) {
+            document.querySelector('.dropdown-select').textContent = category;
+            document.querySelector('.dropdown-list').classList.remove('show');
+        }
+
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-select')) {
+                document.querySelector('.dropdown-list').classList.remove('show');
+            }
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+    </div>
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.style.display = menu.style.display === 'flex' ? 'none' : 'flex';
+        }
+    </script>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img class="logofooter" src="https://cdn1.ozone.ru/s3/multimedia-b/6612836771.jpg" alt="Website Logo">
+                <p class="footername">Название сайта</p>
+            </div>
+            <div class="footer-links">
+                <a class="viewy" class="footerie" class="leftie" href="#">Политика обработки персональных данных</a>
+                <a class="hidy" class="footerie" class="leftie" href="#">Политика обработки персональных данныхㅤ </a>
+                <a class="footerie" href="#"> Версия для слабовидящих</a>
+            </div>
+            <div class="footer-social">
+                <a href="#"><img src="https://www.mgutu-vf.ru/img/vk_1.png" alt="ВКонтакте"></a>
+                <a href="#"><img src="https://okeygeek.ru/wp-content/uploads/2020/08/telegram-2048x2048.png" alt="Telegram"></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; Все права защищены</p>
+        </div>
+    </footer>
+</body>
+</html>
